@@ -1,0 +1,101 @@
+#page-room {
+	header {
+		padding: 2.4rem;
+		border-bottom: 0.1rem solid #e2e2e2;
+
+		div.content {
+			max-width: 1120px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			> img {
+				max-height: 4.5rem;
+			}
+		}
+	}
+
+	main {
+		max-width: 800px;
+		margin: 0 auto;
+
+		div.room-title {
+			margin: 3.2rem 0 2.4rem;
+			display: flex;
+			align-items: center;
+
+			h1 {
+				font-family: "Poppins", sans-serif;
+				font-size: 2.4rem;
+				color: #29292e;
+			}
+
+			span {
+				margin-left: 1.6rem;
+				background-color: #e559f9;
+				border-radius: 3rem;
+				padding: 0.8rem 1.6rem;
+				color: #fff;
+				font-weight: 500;
+				font-size: 1.4rem;
+			}
+		}
+
+		form {
+			textarea {
+				width: 100%;
+				min-height: 13rem;
+				border: 0;
+				padding: 1.6rem;
+				border-radius: 0.8rem;
+				background-color: #fefefe;
+				box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.04);
+				resize: vertical;
+				outline: none;
+			}
+
+			div.form-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 1.6rem;
+
+				div.user-info {
+					display: flex;
+					align-items: center;
+
+					img {
+						width: 32px;
+						height: 32px;
+						border-radius: 30px;
+					}
+
+					span {
+						margin-left: 0.8rem;
+						color: #29292e;
+						font-weight: 500;
+						font-size: 1.4rem;
+					}
+				}
+
+				> span {
+					font-size: 1.4rem;
+					color: #737380;
+					font-weight: 500;
+
+					button {
+						background: transparent;
+						border: 0;
+						color: #835afd;
+						text-decoration: underline;
+						font-size: 1.4rem;
+						font-weight: 500;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}

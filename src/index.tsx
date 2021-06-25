@@ -4,7 +4,6 @@ import App from "./App";
 
 import "./services/firebase";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "./styles/global.scss";
 
 ReactDOM.render(
 	<React.StrictMode>

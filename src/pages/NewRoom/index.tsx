@@ -1,6 +1,7 @@
-import React, { FormEvent, useState, useCallback } from "react";
+import React, { FormEvent, useState, useCallback, useContext } from "react";
+import { ThemeContext } from "styled-components";
 import { Link, useHistory } from "react-router-dom";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiSun, FiMoon } from "react-icons/fi";
 
 import useAuth from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
@@ -15,7 +16,8 @@ interface NewRoomProps {
 	switchTheme(): void;
 }
 
-const NewRoom: React.FC<NewRoomProps> = () => {
+const NewRoom: React.FC<NewRoomProps> = ({ switchTheme }) => {
+	const themeContext = useContext(ThemeContext);
 	const history = useHistory();
 	const { user } = useAuth();
 
@@ -76,6 +78,14 @@ const NewRoom: React.FC<NewRoomProps> = () => {
 					</p>
 				</div>
 			</main>
+
+			<div className="container-theme" onClick={switchTheme}>
+				{themeContext.title === "light" ? (
+					<FiMoon color="#fff" size={22} />
+				) : (
+					<FiSun color="#fff" size={22} />
+				)}
+			</div>
 		</Container>
 	);
 };

@@ -22,7 +22,13 @@ type FirebaseQuestions = Record<
 	}
 >;
 
-interface Question {
+type Room = {
+	title: string;
+	authorId: string;
+	endedAt: Date;
+};
+
+export interface Question {
 	id: string;
 	author: {
 		name: string;
@@ -37,8 +43,8 @@ interface Question {
 
 const useRoom = (roomId: string) => {
 	const { user } = useAuth();
+	const [roomInfo, setRoomInfo] = useState<Room>();
 	const [questions, setQuestions] = useState<Question[]>([]);
-	const [title, setTitle] = useState("");
 
 	useEffect(() => {
 		const roomRef = database.ref(`/rooms/${roomId}`);
@@ -63,7 +69,9 @@ const useRoom = (roomId: string) => {
 				}
 			);
 
-			setTitle(databaseRoom.title);
+			delete databaseRoom.questions;
+
+			setRoomInfo(databaseRoom);
 			setQuestions(parsedQuestions);
 		});
 
@@ -72,7 +80,7 @@ const useRoom = (roomId: string) => {
 		};
 	}, [roomId, user?.id]);
 
-	return { questions, title };
+	return { questions, roomInfo };
 };
 
 export default useRoom;

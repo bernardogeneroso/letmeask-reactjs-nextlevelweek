@@ -1,4 +1,6 @@
-import React, { memo, ReactNode } from "react";
+import { memo, ReactNode } from "react";
+import className from "classnames";
+import { animated } from "react-spring";
 
 import "../styles/question.scss";
 
@@ -13,17 +15,29 @@ interface QuestionProps {
 		isHighlighted?: boolean;
 	};
 	children?: ReactNode;
+	style: Record<string, unknown>;
 }
 
 const Question = ({
 	question: {
 		content,
 		author: { name, avatar },
+		isAnswered = false,
+		isHighlighted = false,
 	},
+
 	children,
+	style,
 }: QuestionProps) => {
 	return (
-		<div className="question">
+		<animated.div
+			style={style}
+			className={className(
+				"question",
+				{ answered: isAnswered },
+				{ highlighted: isHighlighted && !isAnswered }
+			)}
+		>
 			<p>{content}</p>
 			<footer>
 				<div className="user-info">
@@ -32,7 +46,7 @@ const Question = ({
 				</div>
 				<div>{children}</div>
 			</footer>
-		</div>
+		</animated.div>
 	);
 };
 

@@ -1,5 +1,5 @@
 import React, { FormEvent, useCallback, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 
 import useAuth from "../hooks/useAuth";
@@ -54,7 +54,9 @@ const Home: React.FC = () => {
 	return (
 		<div id="page-auth">
 			<aside>
-				<img src={illustrationImg} alt="Illustration" />
+				<Link to="/">
+					<img src={illustrationImg} alt="Illustration" />
+				</Link>
 				<strong>Create rooms of Q&amp;A in real-time</strong>
 				<p>Ask your audience's questions in real-time</p>
 			</aside>

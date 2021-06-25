@@ -42,7 +42,9 @@ const NewRoom: React.FC = () => {
 	return (
 		<div id="page-auth">
 			<aside>
-				<img src={illustrationImg} alt="Illustration" />
+				<Link to="/">
+					<img src={illustrationImg} alt="Illustration" />
+				</Link>
 				<strong>Create rooms of Q&amp;A in real-time</strong>
 				<p>Ask your audience's questions in real-time</p>
 			</aside>

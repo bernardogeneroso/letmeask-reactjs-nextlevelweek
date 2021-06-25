@@ -8,6 +8,40 @@ div.question {
 		margin-top: 0.8rem;
 	}
 
+	&.highlighted {
+		background-color: #f4f0ff;
+		border: 0.1rem solid #835afd;
+
+		footer {
+			div.user-info span {
+				color: #29292e;
+			}
+
+			&:last-child {
+				button.highlighted-question {
+					svg path {
+						stroke: #835afd;
+					}
+				}
+			}
+		}
+	}
+
+	&.answered {
+		background-color: #dbdcdd;
+
+		footer {
+			&:last-child {
+				button.answered-question {
+					svg path,
+					svg circle {
+						stroke: #835afd;
+					}
+				}
+			}
+		}
+	}
+
 	p {
 		color: #29292e;
 	}
@@ -34,6 +68,11 @@ div.question {
 				color: #737380;
 				font-size: 1.4rem;
 			}
+		}
+
+		> div {
+			display: flex;
+			gap: 1.6rem;
 		}
 
 		button {
